@@ -7,11 +7,8 @@ const remainingGuessesInput = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
 const playAgain = document.querySelector(".play-again");
 
-//create another variable called word and give it the value of magnolia
 let word = "magnolia";
-//will contain all the letters the player guess
 let guessedLetters = [];
-//declare a global variable for the number of guesses
 let remainingGuesses = 8;
 
 
