@@ -14,14 +14,12 @@ let guessedLetters = [];
 //declare a global variable for the number of guesses
 let remainingGuesses = 8;
 
-//add an async function 
+
 const getWord = async function() {
     const response = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await response.text();
-    //console.log(getWord());
 
     const wordArray = words.split("\n");
-    //console.log(wordArray);
 
     const randomIndex = Math.floor(Math.random() * wordArray.length);
     word = wordArray[randomIndex].trim();
@@ -30,20 +28,20 @@ const getWord = async function() {
 
 getWord();
 
-//create and name a function to update the paragraphs inner text
+
 const wordsProgress =  function (word) {
     const wordsTempSymbol = [];
     for (const letter of word) {
-        //console.log(letter);
+       
         wordsTempSymbol.push("●");
     }
     wordInProgress.innerText = wordsTempSymbol.join("");
 };
 
-//add and event listener for the button
+
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
-    //emptying the message paragraph
+
     message.innerText = "";
 
     const guess = letterInput.value;
@@ -56,7 +54,7 @@ guessButton.addEventListener("click", function (e) {
     letterInput.value = "";
 });
 
-//function to check players input
+
 const playerInput = function (input) {
     const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0) {
@@ -70,7 +68,7 @@ const playerInput = function (input) {
     }
 };
 
-//function to capture input
+
 const makeGuess = function (guess) {
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)) {
@@ -84,7 +82,6 @@ const makeGuess = function (guess) {
     }
 };
 
-//createa a function to show the guessed letters
 const updateLetters = function () {
     guessedLettersList.innerHTML = "";
 
@@ -95,11 +92,10 @@ const updateLetters = function () {
     }
 };
 
-//create a function to update the word in progress
 const wordUpdate = function (guessedLetters) {
     const wordUpper = word.toUpperCase();
     const wordArray = wordUpper.split("");
-    //console.log(wordArray);
+
     const revealWord = [];
     for (const letter of wordArray) {
         if (guessedLetters.includes(letter)) {
@@ -112,11 +108,9 @@ const wordUpdate = function (guessedLetters) {
     ifWins();
 };
 
-//create a function to count guesses remaining 
 const updateGuesses = function (guess) {
     const upperWord = word.toUpperCase();
     if (!upperWord.includes(guess)) {
-        //loses chance
         message.innerText = `Sorry, the word has no ${guess}.`;
         remainingGuesses -= 1;
     } else {
@@ -133,7 +127,6 @@ const updateGuesses = function (guess) {
     }
 };
 
-//create a function to check if the player won
 const ifWins = function () {
     if (word.toUpperCase() === wordInProgress.innerText) {
         message.classList.add("win");
@@ -157,7 +150,7 @@ playAgain.addEventListener("click", function () {
     remainingGuessesInput.innerText = `${remainingGuesses} guesses`;
     guessedLettersList.innerHTML = "";
     message.innerText = "";
-    //get a new word
+
     getWord();
 
     guessButton.classList.remove("hide");
