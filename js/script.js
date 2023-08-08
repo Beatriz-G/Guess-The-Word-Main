@@ -1,8 +1,5 @@
-//The unordered list where the players guessed letters will appear.
 const guessedLettersList = document.querySelector(".guessed-letters");
-//The button with the text Guess! in it.
 const guessButton = document.querySelector(".guess");
-//The text input where the player will guess a letter.
 const letterInput = document.querySelector(".letter"); 
 //The empty paragraph where the word in progress will appear.
 const wordInProgress = document.querySelector(".word-in-progress");
