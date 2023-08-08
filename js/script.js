@@ -1,15 +1,10 @@
 const guessedLettersList = document.querySelector(".guessed-letters");
 const guessButton = document.querySelector(".guess");
 const letterInput = document.querySelector(".letter"); 
-//The empty paragraph where the word in progress will appear.
 const wordInProgress = document.querySelector(".word-in-progress");
-//The paragraph where the remaining guesses will display.
 const remainingGuess = document.querySelector(".remaining");
-//The span inside the paragraph where the remaining guesses will display.
 const remainingGuessesInput = document.querySelector(".remaining span");
-//The empty paragraph where messages will appear when the player guesses a letter.
 const message = document.querySelector(".message");
-//The hidden button that will appear prompting the player to play again.
 const playAgain = document.querySelector(".play-again");
 
 //create another variable called word and give it the value of magnolia
