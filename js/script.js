@@ -1,28 +1,16 @@
-//The unordered list where the players guessed letters will appear.
 const guessedLettersList = document.querySelector(".guessed-letters");
-//The button with the text Guess! in it.
 const guessButton = document.querySelector(".guess");
-//The text input where the player will guess a letter.
 const letterInput = document.querySelector(".letter"); 
-//The empty paragraph where the word in progress will appear.
 const wordInProgress = document.querySelector(".word-in-progress");
-//The paragraph where the remaining guesses will display.
 const remainingGuess = document.querySelector(".remaining");
-//The span inside the paragraph where the remaining guesses will display.
 const remainingGuessesInput = document.querySelector(".remaining span");
-//The empty paragraph where messages will appear when the player guesses a letter.
 const message = document.querySelector(".message");
-//The hidden button that will appear prompting the player to play again.
 const playAgain = document.querySelector(".play-again");
 
-//create another variable called word and give it the value of magnolia
 let word = "magnolia";
-//will contain all the letters the player guess
 let guessedLetters = [];
-//declare a global variable for the number of guesses
 let remainingGuesses = 8;
 
-//add an async function 
 const getWord = async function() {
     const response = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await response.text();
