@@ -48,10 +48,8 @@ const wordsProgress =  function (word) {
     wordInProgress.innerText = wordsTempSymbol.join("");
 };
 
-//add and event listener for the button
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
-    //emptying the message paragraph
     message.innerText = "";
 
     const guess = letterInput.value;
