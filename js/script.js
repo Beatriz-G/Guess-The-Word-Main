@@ -26,10 +26,8 @@ let remainingGuesses = 8;
 const getWord = async function() {
     const response = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await response.text();
-    //console.log(getWord());
-
+    
     const wordArray = words.split("\n");
-    //console.log(wordArray);
 
     const randomIndex = Math.floor(Math.random() * wordArray.length);
     word = wordArray[randomIndex].trim();
@@ -38,11 +36,9 @@ const getWord = async function() {
 
 getWord();
 
-//create and name a function to update the paragraphs inner text
 const wordsProgress =  function (word) {
     const wordsTempSymbol = [];
     for (const letter of word) {
-        //console.log(letter);
         wordsTempSymbol.push("●");
     }
     wordInProgress.innerText = wordsTempSymbol.join("");
