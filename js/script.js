@@ -64,7 +64,6 @@ guessButton.addEventListener("click", function (e) {
     letterInput.value = "";
 });
 
-//function to check players input
 const playerInput = function (input) {
     const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0) {
@@ -78,21 +77,18 @@ const playerInput = function (input) {
     }
 };
 
-//function to capture input
 const makeGuess = function (guess) {
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)) {
         message.innerText = "You already guessed that letter, please try again!";
     } else {
         guessedLetters.push(guess);
-        console.log(guessedLetters);
         updateGuesses(guess);
         updateLetters();
         wordUpdate(guessedLetters);
     }
 };
 
-//createa a function to show the guessed letters
 const updateLetters = function () {
     guessedLettersList.innerHTML = "";
 
