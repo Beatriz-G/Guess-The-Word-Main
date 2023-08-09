@@ -14,9 +14,7 @@ let remainingGuesses = 8;
 const getWord = async function() {
     const response = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await response.text();
-    
     const wordArray = words.split("\n");
-
     const randomIndex = Math.floor(Math.random() * wordArray.length);
     word = wordArray[randomIndex].trim();
     wordsProgress(word);
@@ -35,11 +33,8 @@ const wordsProgress =  function (word) {
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
     message.innerText = "";
-
     const guess = letterInput.value;
-    
     const goodGuess = playerInput(guess);
-
     if (goodGuess) {
         makeGuess(guess);
     }
@@ -81,11 +76,9 @@ const updateLetters = function () {
     }
 };
 
-//create a function to update the word in progress
 const wordUpdate = function (guessedLetters) {
     const wordUpper = word.toUpperCase();
     const wordArray = wordUpper.split("");
-    //console.log(wordArray);
     const revealWord = [];
     for (const letter of wordArray) {
         if (guessedLetters.includes(letter)) {
@@ -97,12 +90,10 @@ const wordUpdate = function (guessedLetters) {
     wordInProgress.innerText = revealWord.join("");
     ifWins();
 };
-
-//create a function to count guesses remaining 
+ 
 const updateGuesses = function (guess) {
     const upperWord = word.toUpperCase();
     if (!upperWord.includes(guess)) {
-        //loses chance
         message.innerText = `Sorry, the word has no ${guess}.`;
         remainingGuesses -= 1;
     } else {
@@ -119,7 +110,6 @@ const updateGuesses = function (guess) {
     }
 };
 
-//create a function to check if the player won
 const ifWins = function () {
     if (word.toUpperCase() === wordInProgress.innerText) {
         message.classList.add("win");
@@ -143,7 +133,7 @@ playAgain.addEventListener("click", function () {
     remainingGuessesInput.innerText = `${remainingGuesses} guesses`;
     guessedLettersList.innerHTML = "";
     message.innerText = "";
-    //get a new word
+
     getWord();
 
     guessButton.classList.remove("hide");
