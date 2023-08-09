@@ -72,7 +72,7 @@ const makeGuess = function (guess) {
         message.innerText = "You already guessed that letter, please try again!";
     } else {
         guessedLetters.push(guess);
-        console.log(guessedLetters);
+        /*console.log(guessedLetters);*/
         updateGuesses(guess);
         updateLetters();
         wordUpdate(guessedLetters);
