@@ -15,9 +15,7 @@ let remainingGuesses = 8;
 const getWord = async function() {
     const response = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await response.text();
-
     const wordArray = words.split("\n");
-
     const randomIndex = Math.floor(Math.random() * wordArray.length);
     word = wordArray[randomIndex].trim();
     wordsProgress(word);
@@ -29,7 +27,6 @@ getWord();
 const wordsProgress =  function (word) {
     const wordsTempSymbol = [];
     for (const letter of word) {
-       
         wordsTempSymbol.push("●");
     }
 
@@ -90,7 +87,6 @@ const updateLetters = function () {
 const wordUpdate = function (guessedLetters) {
     const wordUpper = word.toUpperCase();
     const wordArray = wordUpper.split("");
-
     const revealWord = [];
     for (const letter of wordArray) {
         if (guessedLetters.includes(letter)) {
