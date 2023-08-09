@@ -32,6 +32,7 @@ const wordsProgress =  function (word) {
        
         wordsTempSymbol.push("●");
     }
+
     wordInProgress.innerText = wordsTempSymbol.join("");
 };
 
@@ -42,12 +43,11 @@ guessButton.addEventListener("click", function (e) {
     message.innerText = "";
 
     const guess = letterInput.value;
-    
     const goodGuess = playerInput(guess);
-
     if (goodGuess) {
         makeGuess(guess);
     }
+
     letterInput.value = "";
 });
 
@@ -65,14 +65,12 @@ const playerInput = function (input) {
     }
 };
 
-
 const makeGuess = function (guess) {
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)) {
         message.innerText = "You already guessed that letter, please try again!";
     } else {
         guessedLetters.push(guess);
-        /*console.log(guessedLetters);*/
         updateGuesses(guess);
         updateLetters();
         wordUpdate(guessedLetters);
@@ -101,6 +99,7 @@ const wordUpdate = function (guessedLetters) {
             revealWord.push("●");
         }
     }
+    
     wordInProgress.innerText = revealWord.join("");
     ifWins();
 };
